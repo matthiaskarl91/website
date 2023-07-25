@@ -12,6 +12,6 @@ export default defineConfig({
 	integrations: [tailwind(), mdx()],
 	output: 'server',
 	adapter: vercel({
-		analytics,
+		analytics: true,
 	}),
 });
