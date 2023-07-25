@@ -1,0 +1,64 @@
+<fieldset id="bio_toggle" class="flex justify-center space-x-2">
+	<div>
+		<input class="hidden peer" type="radio" id="long" name="bio" value="long" />
+		<label
+			for="long"
+			class="border-2 border-dashed border-flame rounded-full px-3 py-1 cursor-pointer hover:bg-slate-500/25 peer-checked:border-solid"
+			>Long</label
+		>
+	</div>
+
+	<div>
+		<input class="hidden peer" type="radio" id="short" name="bio" value="short" />
+		<label
+			for="short"
+			class="border-2 border-dashed border-olivine rounded-full px-3 py-1 cursor-pointer hover:bg-slate-500/25 peer-checked:border-solid"
+			>Short</label
+		>
+	</div>
+</fieldset>
+
+<p id="long_bio" class="text-base">
+	Matthias is a talented Frontend Engineer based in Munich, skilled in TypeScript, React, Remix, and
+	Rust. With a passion for crafting seamless user experiences, he weaves magic into web
+	applications, leaving a lasting impression. Explore his work and witness the enchanting world of
+	frontend development come to life.
+</p>
+<p id="short_bio" class="text-base">
+	Matthias is a skilled Frontend Engineer from Munich, specializing in TypeScript, React, Remix, and
+	Rust. With a focus on creating seamless user experiences, his work showcases the artistry of
+	frontend development. Explore his portfolio to witness the magic he brings to the digital realm.
+</p>
+<script>
+	let bio: 'long' | 'short' = 'long';
+	const bioToggle = document.getElementById('bio_toggle') as HTMLFieldSetElement;
+	const longRadio = document.getElementById('long') as HTMLInputElement;
+	const shortRadio = document.getElementById('short') as HTMLInputElement;
+	const longBio = document.getElementById('long_bio') as HTMLParagraphElement;
+	const shortBio = document.getElementById('short_bio') as HTMLParagraphElement;
+
+	bioToggle.addEventListener('change', handleToggle);
+
+	function selectBio(bio: 'short' | 'long') {
+		if (bio === 'long') {
+			longRadio.checked = true;
+			longBio.classList.remove('hidden');
+			shortBio.classList.add('hidden');
+		}
+		if (bio === 'short') {
+			shortRadio.checked = true;
+			shortBio.classList.remove('hidden');
+			longBio.classList.add('hidden');
+		}
+	}
+
+	selectBio(bio);
+
+	function handleToggle(event: Event) {
+		if (event.target instanceof HTMLInputElement) {
+			const target = event.target;
+			bio = target.value;
+			selectBio(bio);
+		}
+	}
+</script>

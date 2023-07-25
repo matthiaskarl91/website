@@ -1,5 +1,8 @@
---- 
-import DarkToggle from '../components/DarkToggle.astro';
+---
+import Navigation from '../components/Navigation.astro';
+import '@fontsource-variable/montserrat';
+import '@fontsource/fira-mono';
+
 interface Props {
 	title: string;
 }
@@ -8,17 +11,19 @@ const { title } = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description">
+		<meta name="description" content="Astro description" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body class="prose dark:bg-delftBlue dark:text-white motion-safe:transition-all motion-safe:duration-300">
-    <DarkToggle />
+	<body
+		class="container px-5 space-y-8 mx-auto dark:bg-delftBlue dark:text-white motion-safe:transition-all motion-safe:duration-300"
+	>
+		<Navigation />
 		<slot />
 	</body>
 </html>

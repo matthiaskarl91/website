@@ -1,8 +1,32 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import portrait from '../assets/portrait.png';
+import Bio from '../components/Bio.astro';
 ---
 
 <Layout title="Welcome to Astro.">
-	<main>
+	<main class="max-w-md mx-auto space-y-4">
+		<div class="flex flex-col space-y-4 lg:flex-row lg:space-x-4 items-center">
+			<div>
+				<h1 class="text-3xl font-medium tracking-widest">Matthias Karl</h1>
+				<h3 class="text-xl font-medium tracking-widest text-slate-400">Fullstack Engineer</h3>
+			</div>
+			<Image
+				class="w-48 h-48 rounded-full object-cover object-top"
+				src={portrait}
+				alt="Image of me"
+			/>
+		</div>
+		<div class="flex flex-col justify-center">
+			<p class="text-center text-slate-300">Connect with me</p>
+			<ul class="flex flex-row justify-center space-x-4">
+				<li class="text-olivine underline"><a href="">Github</a></li>
+				<li class="text-orangeWeb underline"><a href="">Twitter</a></li>
+				<li class="text-flame underline"><a href="">LinkedIn</a></li>
+				<li class="text-airBlue underline"><a href="">Discord</a></li>
+			</ul>
+		</div>
+		<Bio />
 	</main>
 </Layout>
