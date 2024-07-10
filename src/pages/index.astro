@@ -1,0 +1,35 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import ColorScript from "../components/ColorScript.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
+import { Content as About } from "../content/about.md";
+
+---
+
+<!doctype html>
+<html lang="en-us">
+	<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	<body>
+		<Header title={SITE_TITLE} />
+		<main>
+			<About />
+
+			<br />
+
+			<h3>Here's my most recent posts</h3>
+
+
+			<p class="center">
+				You can also <a href="https://blahg.netlify.app/rss.xml">
+					subscribe with RSS!
+				</a>
+			</p>
+			<br />
+
+		</main>
+		<Footer />
+		<ColorScript />
+	</body>
+</html>
