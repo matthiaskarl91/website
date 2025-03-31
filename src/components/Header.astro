@@ -2,7 +2,7 @@
 import HeaderLink from "./HeaderLink.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
 import { Image } from "astro:assets";
-import Portrait from "../assets/portrait_matthias_karl.png";
+import Portrait from "../assets/portrait_matthias_karl.webp";
 ---
 
 <header>
@@ -12,7 +12,7 @@ import Portrait from "../assets/portrait_matthias_karl.png";
 			<h2>{SITE_DESCRIPTION}</h2>
 		</div>
     <div>
-      <Image src={Portrait} alt="" class="rounded-full w-48 h-48" />
+      <Image src={Portrait} alt="" class="w-48" style="clip-path: circle()" />
     </div>
 	</div>
 </header>
